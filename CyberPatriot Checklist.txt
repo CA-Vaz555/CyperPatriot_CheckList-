@@ -1,0 +1,52 @@
+Cyber Patriot Check List
+
+- Read the "Read Me" file
+
+- Do the Forensic Questions before anything else
+
+- Check user priviledges:
+	>Get rid of users that shouldn't be there
+		*(click user, remove)
+	>Take or give admin priviledges to those who need it
+		*(click user, change account type to standard or admin)
+
+- Password Policy:
+	>Change each users password to a strong password!!! (10 char minimum)
+		*(One captial letter, one lower case letter, number, special character)
+	>Maximum password age varies on the user
+		*(90 days max for standard)
+		*(30 days max for admin)
+	>Changed password age == 1 day and a minimum of 10 days passed
+
+-Lockout Policy:
+	>Windows - Go into Local Security Policy/Local Policy/Audit Policy (Turn on everything; both success and failures)
+		(Duration = 30 min, Threshold = 5, Counter After = 30 min)
+	>Ubuntu - Command: sudo gedit
+		- File Location: /etc/pam.d/common-auth
+
+
+- Media Files:
+	>Must delete ALL media files 
+		*(.mp3, .mp4, .wav, .mov, .png, .jpeg, .gif)
+		*Anything media; it has to go! 
+		*This includes any games
+	>Delete any malware packages/files (Nmap, Wireshark)
+
+- Update your machine (During a lunch break)
+
+- Disable other ways to get into your machine:
+	>Security Options - Remote desktop, CTRL+ALT+DEL, ssh, root access, floppy disk, port scan, FTP** (** very important)
+		>Windows - Turn off all the programs/features in Internet Information services except the ones they want you to keep (in the Read Me) and restart
+		>Ubuntu - Turn off all services (Commands: sudo service -status-all, sudo apt-get remove *application name*, sudo service *service name* stop)
+				to add back any services (sudo apt-get install *application name*)
+
+-Browser:
+	>Firewall - turn it on in settings
+	>Turn on pop up blocker
+	>Update any internet browsers and set Firefox as default browser
+
+-Auditing:
+	>Windows:
+		>Log in, Files, Services
+	>Ubuntu:
+		>Authencation Events, Destop Events, Software Events, OS Events 
